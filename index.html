@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barca Blog</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .pressed { background-color: lightgrey; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel"> 
+
+    const Post = ({ post }) => {
+        
+        return(
+            <div>
+            <h1>{post.title}</h1>
+            
+            <h2>{post.content}</h2>
+            </div>
+        );
+
+    };
+
+    const App = () => {
+        const [ posts, setPosts ] = React.useState([])
+
+        async function fetchPosts(){
+            //let listado = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+            //let listado = await fetch('https://dog-api.kinduff.com/api/facts')
+            let listado = await fetch('http://localhost:3000/posts')
+            let listado_json = await listado.json()
+
+            setPosts(listado_json)
+        }
+
+        React.useEffect(() => {
+            fetchPosts()
+        }, []);
+
+        return(
+            <div>
+            <header>
+                <h1></h1>
+                <center>
+                <img src='./src/logo1.png'></img>
+                </center>
+            </header>
+            <h1>BarcaBlog</h1>
+                {posts.map(post => <Post key={post.id} post={post} />)}
+            </div>
+        );
+    };
+    
+    
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App />)
+    </script>
+</body>
+</html>

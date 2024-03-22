@@ -38,71 +38,45 @@
         }
         header{
             background-color: #0A0927;
-            padding: 10vw 1vw;
-            text-align: center;
             /*mas colores: https://teamcolorcodes.com/barcelona-fc-colors/
             */
-            height: 2vw;
-        }
-        .LogoHeader{
-            text-align: center;
-        }
-        /*Responsiveness para el logo del header*/
-        @media screen and (min-width: 900px) {
-            .LogoHeader {
-                width: 50vw;
-            }
-        }
-
-        @media screen and (max-width: 900px) {
-            .LogoHeader {
-                width: 90vw; 
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .LogoHeader {
-                width: 100vw;
-            }
         }
 
         .container_posts {
-            width: 50%;
             margin: auto;
-            padding: 30px;
         }
         .post {
             background-color: #fff;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 30px;
-            border-radius: 20px;
         }
+        
         .header-container{
             background-color: #fff;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            align-items: center;
-            padding: 20px;
         }
 
         .info-partido {
-            /* Estilos para la información del partido a la izquierda */
+            order: 1;
         }
 
         .detalles-partido {
-            /* Estilos para los detalles del partido a la derecha */
+            order:2;
         }
 
-        .marcador-partido {
-            display: flex;
-            align-items: center;
+        .marcador-partido, .nombres-equipos {
+            text-align: center;
         }
 
-        .marcador-partido img {
-            width: 7vw; /* Ajusta el tamaño según sea necesario */
+        .LogoMarcador {
+            width: 9vw;
             height: auto;
-            margin-right: 10px;
+            padding: 1vw;
+        }
+        .estadioLogo {
+            width: 5vw;
+            height: auto;
+            padding: 1vw;
         }
 
         .nombres-equipos {
@@ -111,9 +85,20 @@
             align-items: center;
         }
 
-        .nombres-equipos span {
-            margin: 5px 0; /* Ajusta el espaciado entre los nombres de los equipos */
+
+        /*Tamaños*/
+        .container_posts {
+            width: 60vw;
+            padding: 30px;
         }
+        .post {
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        /**/
+
 
         .tituloPost{
             flex: 3;
@@ -124,6 +109,154 @@
         .ImgBanner{
             text-align: center;
         }
+
+        /* Estilos para pantallas de 1280px a 1100px */
+        @media screen and (min-width: 1100px) {
+        /* Header de Página */
+        header{
+            padding: 0.1vw;
+        }
+        .ImgBanner{
+            width: 100%;
+            height: auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Post */
+        /* Header */
+        /* infoPartido */
+        /* MarcadorPartido */
+
+        /* Cuerpo Post */
+        }
+
+        /* Estilos para pantallas de 1100px a 1000px */
+        @media screen and (max-width: 1100px) and (min-width: 1000px) {
+            /* Header de Página */
+            header{
+                padding: 0.5vw;
+            }
+            .ImgBanner{
+                width: 100%;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            /* Post */
+            .container_posts {
+                width: 660px;
+            }
+            /* Header */
+            /* infoPartido */
+            /* MarcadorPartido */
+
+            /* Cuerpo Post */
+        }
+
+        /* Estilos para pantallas de 1000px a 815px */
+        @media screen and (max-width: 1000px) and (min-width: 815px) {
+        /* Header de Página */
+
+        .ImgBanner{
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            text-align: center;
+            overflow:hidden;
+        }
+        .LogoHeader{
+            max-height: 100%;
+            width: auto;
+            display: inline-block;
+        }
+
+        /* Post */
+        .container_posts {
+                width: 660px;
+        }
+        /* Header */
+        /* infoPartido */
+        /* MarcadorPartido */
+
+        /* Cuerpo Post */
+        }
+
+        /* Estilos para pantallas de 815px a 640px */
+        @media screen and (max-width: 815px) and (min-width: 640px) {
+        /* Header de Página */
+        header{
+            padding: 0.5vw;
+        }
+        .ImgBanner{
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+
+        /* Post */
+        .container_posts {
+            width: 660px;
+        }
+        /* Header */
+        .header-container {
+            flex-direction: column; /* Cambiar a una columna en pantallas más pequeñas */
+        }
+        .container_posts {
+            width: 100vw;
+        }
+        .info-partido,.detalles-partido {
+            width: 100%; /* Ambos ocupan el 100% del ancho */
+            order: unset; /* Restablecer el orden para la disposición de una columna */
+        }
+
+        .info-partido {
+            margin-bottom: 20px; /* Agregar espacio entre los elementos */
+        }
+        /* infoPartido */
+        /* MarcadorPartido */
+
+        /* Cuerpo Post */
+        }
+
+        /* Estilos para pantallas de 640px o menos */
+        @media screen and (max-width: 640px) {
+        /* Header de Página */
+        header{
+            padding: 0.5vw;
+        }
+        .ImgBanner{
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        .LogoHeader{
+            width: 100%;
+        }
+
+        /* Post */
+        /* Header */
+        .header-container {
+            flex-direction: column; /* Cambiar a una columna en pantallas más pequeñas */
+        }
+        .container_posts {
+            width: 100vw;
+        }
+        .info-partido,.detalles-partido {
+            width: 100%; /* Ambos ocupan el 100% del ancho */
+            order: unset; /* Restablecer el orden para la disposición de una columna */
+        }
+
+        .info-partido {
+            margin-bottom: 20px; /* Agregar espacio entre los elementos */
+        }
+        /* infoPartido */
+        /* MarcadorPartido */
+
+        /* Cuerpo Post */
+        }
+
     </style>
 </head>
 <body>
@@ -140,21 +273,21 @@
                         <div class="info-partido">
                             {post.partidoInfo.fecha}
                             <br/>
+                            <img class="estadioLogo" src=""></img>
                             {post.equipoLocal.NombreEstadio}
                         </div>
 
                         <div class="detalles-partido">
-                            <div class="marcador-partido">
-                                <center>
-                                <img src={post.equipoLocal.logoIMG} alt="Logo Local"></img>
-                                <span class="score">{post.partidoInfo.marcador_local}-{post.partidoInfo.marcador_visit}</span>
-                                <img src={post.equipoVisitante.logoIMG} alt="Logo Visitante"></img>
-                                </center>
-                            </div>
-                            <br/>
-                            <div class="nombres-equipos">
-                                <center>{post.equipoLocal.nombre} - {post.equipoVisitante.nombre}</center>
-                            </div>
+                            <table>
+                                <tr>
+                                    <td><img src={post.equipoLocal.logoIMG} alt="Logo Local" class="LogoMarcador"></img>{post.partidoInfo.marcador_local}</td>
+                                    <td>{post.partidoInfo.marcador_visit} <img src={post.equipoVisitante.logoIMG} alt="Logo Visitante" class="LogoMarcador"></img></td>
+                                </tr>
+                                <tr>
+                                    <td>{post.equipoLocal.nombre} - </td>
+                                    <td> {post.equipoVisitante.nombre}</td>
+                                </tr>
+                            </table>
                         </div>
                     </header>
 
